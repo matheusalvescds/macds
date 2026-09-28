@@ -1,0 +1,5 @@
+/* macds — webfonts.
+   No binaries were provided with the brief; the three families named in it are all
+   Google Fonts and are loaded from the Google CSS API. Swap these @import lines for
+   local @font-face rules if self-hosted files become available. */
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap");

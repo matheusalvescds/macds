@@ -1,0 +1,40 @@
+/* macds — typography. Scale replaces color as the signal of importance. */
+:root{
+  --font-display:"Space Grotesk",system-ui,sans-serif;
+  --font-body:"Inter",system-ui,sans-serif;
+  --font-mono:"JetBrains Mono",ui-monospace,monospace;
+
+  --fw-display-medium:500; /* @kind font */
+  --fw-display-semibold:600; /* @kind font */
+  --fw-display-bold:700; /* @kind font */
+  --fw-body:400; /* @kind font */
+  --fw-body-medium:500; /* @kind font */
+  --fw-body-semibold:600; /* @kind font */
+
+  /* display — clamped, viewport-fluid, always negative tracking */
+  --text-hero:clamp(3.5rem,11vw,10.5rem);   /* wordmark / name */
+  --text-d1:clamp(2.75rem,7vw,6rem);        /* section opener */
+  --text-d2:clamp(2rem,4.5vw,3.5rem);       /* project title */
+  --text-d3:clamp(1.5rem,2.6vw,2.25rem);
+
+  /* body */
+  --text-lg:1.25rem;
+  --text-md:1.0625rem;
+  --text-sm:0.9375rem;
+  --text-xs:0.8125rem;
+
+  /* mono / eyebrow */
+  --text-label:0.75rem;   /* uppercase, wide tracking, mono */
+
+  --tracking-hero:-0.05em; /* @kind font */
+  --tracking-display:-0.035em; /* @kind font */
+  --tracking-tight:-0.02em; /* @kind font */
+  --tracking-body:-0.005em; /* @kind font */
+  --tracking-label:0.16em; /* @kind font */
+
+  --leading-hero:0.88; /* @kind font */
+  --leading-display:1.02; /* @kind font */
+  --leading-snug:1.28; /* @kind font */
+  --leading-body:1.6; /* @kind font */
+  --leading-loose:1.75; /* @kind font */
+}

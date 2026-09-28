@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://macds.vercel.app/sitemap.xml

@@ -1,0 +1,42 @@
+/* macds — effects. Light behaviour on dark surfaces: grain, edge light, halo, glass, caustics. */
+:root{
+  /* grain — mandatory. 4% over everything, otherwise the black dies and gradients band. */
+  --grain-url:url("../assets/textures/grain-256.png"); /* @kind other */
+  --grain-opacity:0.04; /* @kind other */
+  --grain-size:256px; /* @kind other */
+
+  /* edge light: a hairline of pure white on the lit side, not a diffuse shadow */
+  --edge-top:inset 0 1px 0 0 var(--light-10);
+  --edge-top-strong:inset 0 1px 0 0 var(--light-24);
+  --edge-inline:inset 1px 0 0 0 var(--light-06);
+
+  /* halos — bloom around lit elements. No generic drop shadows in this system. */
+  --halo-sm:0 0 0 1px var(--light-06),0 2px 24px -12px rgba(255,255,255,.28);
+  --halo-md:0 0 0 1px var(--light-10),0 8px 60px -24px rgba(255,255,255,.35);
+  --halo-lg:0 0 0 1px var(--light-16),0 24px 120px -40px rgba(255,255,255,.42);
+
+  /* depth: black on black, felt not seen */
+  --depth-inset:inset 0 0 60px -20px #000;
+  --depth-drop:0 32px 80px -48px #000;
+
+  /* glass */
+  --glass-blur:18px; /* @kind other */
+  --glass-blur-strong:36px; /* @kind other */
+  --glass-bg:linear-gradient(160deg,var(--light-06),var(--light-02) 42%,transparent 70%); /* @kind other */
+  --glass-border:var(--light-10); /* @kind other */
+
+  /* light filaments & sweeps */
+  --filament:linear-gradient(90deg,transparent,var(--light-40) 18%,var(--light-pure) 50%,var(--light-40) 82%,transparent); /* @kind other */
+  --sweep:linear-gradient(100deg,transparent 20%,var(--light-70) 48%,var(--light-pure) 52%,transparent 80%); /* @kind other */
+  --hairline-fade:linear-gradient(90deg,transparent,var(--border) 12%,var(--border-strong) 50%,var(--border) 88%,transparent); /* @kind other */
+
+  /* caustic field — layered radial luminance, used as hero backdrop base */
+  --caustic-field:
+    radial-gradient(60% 42% at 22% 28%,rgba(255,255,255,.16),transparent 62%),
+    radial-gradient(48% 36% at 78% 22%,rgba(255,255,255,.10),transparent 60%),
+    radial-gradient(72% 52% at 58% 82%,rgba(255,255,255,.07),transparent 66%); /* @kind other */
+
+  /* protection: the "zona de silêncio" — solid dark under every text block */
+  --silence-veil:linear-gradient(90deg,var(--canvas) 0%,rgba(5,5,6,.92) 46%,rgba(5,5,6,0) 88%); /* @kind other */
+  --silence-veil-bottom:linear-gradient(0deg,var(--canvas) 0%,rgba(5,5,6,.88) 40%,rgba(5,5,6,0) 100%); /* @kind other */
+}

@@ -1,0 +1,28 @@
+/* macds — spacing & layout. 4px base; sections breathe hard (silence is a component). */
+:root{
+  --sp-1:4px;
+  --sp-2:8px;
+  --sp-3:12px;
+  --sp-4:16px;
+  --sp-5:24px;
+  --sp-6:32px;
+  --sp-7:48px;
+  --sp-8:64px;
+  --sp-9:96px;
+  --sp-10:128px;
+  --sp-11:160px;
+  --sp-12:200px;
+
+  --section-y:clamp(96px,14vh,200px); /* @kind spacing */   /* vertical rhythm between sections */
+  --gutter:clamp(20px,5vw,64px); /* @kind spacing */        /* page side padding */
+  --measure:64ch; /* @kind spacing */                       /* max reading width */
+  --container:1280px; /* @kind spacing */
+  --container-narrow:880px; /* @kind spacing */
+
+  --bp-sm:640px; /* @kind spacing */
+  --bp-md:768px; /* @kind spacing */   /* below this: refraction + caustics degrade to static */
+  --bp-lg:1024px; /* @kind spacing */
+  --bp-xl:1280px; /* @kind spacing */
+
+  --hit-min:44px; /* @kind spacing */  /* minimum interactive target */
+}

@@ -1,0 +1,12 @@
+/* macds — entrada de estilos do site.
+   As fontes NÃO são importadas aqui: elas são carregadas no <head> do index.html com
+   preconnect, porque @import aninhado é o caminho mais lento e derrubaria o LCP. */
+@import url("tokens/colors.css");
+@import url("tokens/typography.css");
+@import url("tokens/spacing.css");
+@import url("tokens/borders.css");
+@import url("tokens/effects.css");
+@import url("tokens/motion.css");
+@import url("tokens/base.css");
+@import url("tokens/theme-light.css");
+@import url("site.css");

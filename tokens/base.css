@@ -1,0 +1,39 @@
+/* macds — base layer: reset, canvas, grain, focus, primitives for text roles. */
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--canvas);color:var(--text-primary);font-family:var(--font-body);font-size:var(--text-md);line-height:var(--leading-body);letter-spacing:var(--tracking-body);-webkit-font-smoothing:antialiased;text-wrap:pretty}
+img,svg,canvas{display:block;max-width:100%}
+::selection{background:var(--light-24);color:var(--light-pure)}
+
+/* links — monochrome, underline-offset only; no color change */
+a{color:var(--text-primary);text-decoration:none;text-underline-offset:0.28em;text-decoration-thickness:1px;transition:opacity var(--dur-base) var(--ease),text-decoration-color var(--dur-base) var(--ease)}
+a:hover{text-decoration:underline;text-decoration-color:var(--light-40)}
+a:active{opacity:.72}
+
+:where(a,button,input,textarea,select,[tabindex]):focus-visible{outline:1px solid var(--focus-ring);outline-offset:3px;border-radius:var(--radius-xs)}
+
+/* mandatory grain overlay */
+.macds-grain{position:fixed;inset:0;pointer-events:none;z-index:9999;background-image:var(--grain-url);background-size:var(--grain-size);opacity:var(--grain-opacity);mix-blend-mode:screen}
+.macds-grain--local{position:absolute;z-index:2}
+
+/* monochrome plate: imagery is luminance only. The theme layer inverts this in light mode,
+   so never set an inline filter on a .macds-plate image — inline always wins. */
+.macds-plate{filter:grayscale(1) contrast(1.06)}
+
+/* text roles */
+.macds-hero{font-family:var(--font-display);font-weight:var(--fw-display-bold);font-size:var(--text-hero);line-height:var(--leading-hero);letter-spacing:var(--tracking-hero);margin:0}
+.macds-d1{font-family:var(--font-display);font-weight:var(--fw-display-semibold);font-size:var(--text-d1);line-height:var(--leading-display);letter-spacing:var(--tracking-display);margin:0}
+.macds-d2{font-family:var(--font-display);font-weight:var(--fw-display-medium);font-size:var(--text-d2);line-height:var(--leading-display);letter-spacing:var(--tracking-display);margin:0}
+.macds-d3{font-family:var(--font-display);font-weight:var(--fw-display-medium);font-size:var(--text-d3);line-height:var(--leading-snug);letter-spacing:var(--tracking-tight);margin:0}
+.macds-body{font-size:var(--text-md);line-height:var(--leading-body);color:var(--text-secondary);max-width:var(--measure)}
+.macds-label{font-family:var(--font-mono);font-size:var(--text-label);text-transform:uppercase;letter-spacing:var(--tracking-label);color:var(--text-secondary)}
+.macds-mono{font-family:var(--font-mono);font-size:var(--text-sm);letter-spacing:0}
+
+/* zona de silêncio — solid dark plate reserved for text over agitated imagery */
+.macds-silence{position:relative;isolation:isolate}
+.macds-silence::before{content:"";position:absolute;inset:-6% -8%;background:var(--silence-veil);z-index:-1}
+
+@media (max-width:768px){
+  /* heavy effects degrade: refraction and caustics become static */
+  .macds-static-below-md{animation:none!important;filter:none!important}
+}

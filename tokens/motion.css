@@ -1,0 +1,32 @@
+/* macds — motion. The system's differentiator. Transform + opacity + mask only.
+   Banned: fade-in, slide-up, bounce, hover scale, entrance animation on already-visible
+   elements, pre-loaders, scroll hijacking. */
+:root{
+  --ease:cubic-bezier(0.22,1,0.36,1); /* @kind other */      /* default, everywhere */
+  --ease-in:cubic-bezier(0.55,0,1,0.45); /* @kind other */   /* exits / fragmentation */
+  --ease-liquid:cubic-bezier(0.65,0,0.35,1); /* @kind other */
+
+  --dur-fast:180ms; /* @kind other */   /* focus rings, cursor tracking only */
+  --dur-base:400ms; /* @kind other */
+  --dur-mid:550ms; /* @kind other */
+  --dur-slow:700ms; /* @kind other */
+  --dur-ambient:14s; /* @kind other */  /* caustic drift, light-source rotation */
+
+  --stagger-char:26ms; /* @kind other */
+  --stagger-block:70ms; /* @kind other */
+}
+
+/* light sweep reveal — a white gradient crossing the text mask */
+@keyframes macds-sweep{from{mask-position:120% 0,0 0;-webkit-mask-position:120% 0,0 0}to{mask-position:-20% 0,0 0;-webkit-mask-position:-20% 0,0 0}}
+/* caustic drift — slow luminance movement */
+@keyframes macds-caustic{0%{transform:translate3d(-2%,-1%,0) scale(1.08) rotate(0deg)}50%{transform:translate3d(2%,2%,0) scale(1.16) rotate(4deg)}100%{transform:translate3d(-2%,-1%,0) scale(1.08) rotate(0deg)}}
+/* infinite ticker — one continuous translate on a duplicated track */
+@keyframes macds-marquee{from{transform:translate3d(0,0,0)}to{transform:translate3d(-50%,0,0)}}
+/* light source rotation — bound to scroll in JS, ambient as fallback */
+@keyframes macds-lightspin{to{transform:rotate(360deg)}}
+/* filament travel along an edge */
+@keyframes macds-filament{from{transform:translate3d(-100%,0,0)}to{transform:translate3d(100%,0,0)}}
+
+@media (prefers-reduced-motion:reduce){
+  :root{--dur-fast:1ms; /* @kind other */ --dur-base:1ms; /* @kind other */ --dur-mid:1ms; /* @kind other */ --dur-slow:1ms /* @kind other */}
+}

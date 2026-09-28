@@ -1,0 +1,58 @@
+/* macds — tema claro. Mesma disciplina invertida: em "light" o preto é a luz.
+   Papel claro, tinta #0E0E10, e as arestas/halos passam a ser sombras de tinta.
+   Ativação: <html data-theme="light"> ou [data-theme="light"] em qualquer contêiner. */
+[data-theme="light"]{
+  --mono-000:#F2F2F4; /* canvas — papel */
+  --mono-050:#EDEDF0;
+  --mono-100:#FFFFFF; /* superfície 1 */
+  --mono-200:#E9E9ED; /* superfície 2 */
+  --mono-300:#D8D8DE; /* borda */
+  --mono-400:#BFBFC7;
+  --mono-500:#8E8E93;
+  --mono-600:#5A5A61; /* texto secundário */
+  --mono-700:#3C3C42;
+  --mono-800:#0E0E10; /* texto primário */
+  --light-pure:#000000; /* "luz" = tinta pura, reservada a arestas e fios */
+
+  --light-02:rgba(0,0,0,.02);
+  --light-04:rgba(0,0,0,.04);
+  --light-06:rgba(0,0,0,.06);
+  --light-10:rgba(0,0,0,.10);
+  --light-16:rgba(0,0,0,.14);
+  --light-24:rgba(0,0,0,.22);
+  --light-40:rgba(0,0,0,.38);
+  --light-70:rgba(0,0,0,.68);
+
+  --surface-glass:rgba(255,255,255,.66);
+  --focus-ring:rgba(0,0,0,.7);
+
+  --edge-top:inset 0 1px 0 0 rgba(255,255,255,.9); /* @kind shadow */
+  --edge-top-strong:inset 0 1px 0 0 #fff; /* @kind shadow */
+  --halo-sm:0 0 0 1px rgba(0,0,0,.06),0 2px 18px -12px rgba(0,0,0,.35);
+  --halo-md:0 0 0 1px rgba(0,0,0,.10),0 10px 44px -22px rgba(0,0,0,.4);
+  --halo-lg:0 0 0 1px rgba(0,0,0,.14),0 24px 90px -38px rgba(0,0,0,.45);
+  --depth-inset:inset 0 0 60px -22px rgba(0,0,0,.18);
+  --depth-drop:0 24px 60px -40px rgba(0,0,0,.5);
+
+  --glass-bg:linear-gradient(160deg,rgba(255,255,255,.7),rgba(255,255,255,.25) 42%,transparent 70%);
+  --glass-border:rgba(0,0,0,.10);
+  --filament:linear-gradient(90deg,transparent,rgba(0,0,0,.35) 18%,#000 50%,rgba(0,0,0,.35) 82%,transparent); /* @kind other */
+  --sweep:linear-gradient(100deg,transparent 20%,rgba(0,0,0,.6) 48%,#000 52%,transparent 80%); /* @kind other */
+  --hairline-fade:linear-gradient(90deg,transparent,var(--border) 12%,var(--border-strong) 50%,var(--border) 88%,transparent);
+  --caustic-field:
+    radial-gradient(60% 42% at 22% 28%,rgba(0,0,0,.10),transparent 62%),
+    radial-gradient(48% 36% at 78% 22%,rgba(0,0,0,.07),transparent 60%),
+    radial-gradient(72% 52% at 58% 82%,rgba(0,0,0,.05),transparent 66%); /* @kind other */
+  --silence-veil:linear-gradient(90deg,var(--canvas) 0%,rgba(242,242,244,.94) 46%,rgba(242,242,244,0) 88%);
+  --silence-veil-bottom:linear-gradient(0deg,var(--canvas) 0%,rgba(242,242,244,.9) 40%,rgba(242,242,244,0) 100%);
+  --grain-opacity:0.035; /* @kind other */
+}
+/* o grão inverte de blend: em papel ele escurece em vez de acender */
+[data-theme="light"] .macds-grain{mix-blend-mode:multiply}
+/* plates de luz sobre preto precisam ser invertidos para funcionar em papel */
+[data-theme="light"] .macds-plate{filter:grayscale(1) invert(1) contrast(1.05)}
+[data-theme="light"] ::selection{background:rgba(0,0,0,.16);color:#000}
+
+/* in light mode the header band always carries a surface: paper over imagery has no
+   contrast floor, so a transparent nav would put text straight on the plate */
+[data-theme="light"] header{background:rgba(242,242,244,.86);backdrop-filter:blur(14px) saturate(0);-webkit-backdrop-filter:blur(14px) saturate(0)}

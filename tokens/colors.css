@@ -1,0 +1,46 @@
+/* macds — color. Strictly monochromatic. There is no accent hue, by rule.
+   White (#FFFFFF) is LIGHT, never text: edges, halos, filaments, speculars. */
+:root{
+  /* base ramp, dark → light */
+  --mono-000:#050506; /* canvas */
+  --mono-050:#0A0A0C;
+  --mono-100:#0E0E10; /* surface 1 */
+  --mono-200:#1A1A1D; /* surface 2 */
+  --mono-300:#2A2A2E; /* border */
+  --mono-400:#3C3C42;
+  --mono-500:#5A5A61;
+  --mono-600:#8E8E93; /* text secondary */
+  --mono-700:#B8B8BE;
+  --mono-800:#F2F2F4; /* text primary */
+  --light-pure:#FFFFFF; /* light only */
+
+  /* translucent light — halos, glass, sweeps */
+  --light-02:rgba(255,255,255,.02);
+  --light-04:rgba(255,255,255,.04);
+  --light-06:rgba(255,255,255,.06);
+  --light-10:rgba(255,255,255,.10);
+  --light-16:rgba(255,255,255,.16);
+  --light-24:rgba(255,255,255,.24);
+  --light-40:rgba(255,255,255,.40);
+  --light-70:rgba(255,255,255,.70);
+
+  /* semantic */
+  --canvas:var(--mono-000);
+  --surface-1:var(--mono-100);
+  --surface-2:var(--mono-200);
+  --surface-glass:rgba(14,14,16,.62);
+  --border:var(--mono-300);
+  --border-strong:var(--mono-400);
+  --border-lit:var(--light-24);
+  --text-primary:var(--mono-800);
+  --text-secondary:var(--mono-600);
+  --text-tertiary:var(--mono-500);
+  --text-inverse:var(--mono-000);
+  --icon:var(--mono-700);
+  --icon-muted:var(--mono-600);
+  --focus-ring:var(--light-70);
+
+  /* the only "semantic status" colors in the system are luminance steps */
+  --state-ok:var(--mono-800);
+  --state-muted:var(--mono-500);
+}
